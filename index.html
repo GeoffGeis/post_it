@@ -1,0 +1,32 @@
+<html>
+<body>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '136228200053820',
+      xfbml      : true,
+      version    : 'v2.4'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
+
+<div id="publishBtn" style="padding-top: 20px">Click me to publish a "picture" post to Facebook.</div>
+
+<script>
+FB.login(function(){
+  // Note: The call will only work if you accept the permission request
+  FB.api('/me/feed', 'post', {picture: 'http://7-themes.com/data_images/out/59/6974484-cute-cat-smile.jpg'});
+}, {scope: 'publish_actions'});
+</script>
+</body>
+</html>
