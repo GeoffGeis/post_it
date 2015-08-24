@@ -4,7 +4,7 @@ var http = require('http'),
 
 var app = http.createServer(function(request, response) {
   var index = path.join(__dirname, '/index.html');
-  if(request.url === '/' || requset.url === '/index.html') {
+  if(request.url === '/' || request.url === '/index.html') {
     fs.readFile(index, function(err, data) {
       if(err) {
 	console.error(err);
