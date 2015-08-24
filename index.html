@@ -24,9 +24,7 @@
 
 <script>
 FB.login(function(){
-  var imgURL = 'http://7-themes.com/data_images/out/59/6974484-cute-cat-smile.jpg';
-  // Note: The call will only work if you accept the permission request
-  FB.api('/me/feed', 'post', {picture: imgURL});
+  FB.api('/me/feed', 'post', {picture: 'http://7-themes.com/data_images/out/59/6974484-cute-cat-smile.jpg'});
 }, {scope: 'publish_actions'});
 </script>
 </body>
