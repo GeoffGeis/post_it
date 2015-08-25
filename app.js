@@ -3,7 +3,7 @@ var http = require('http'),
   path = require('path');
 
 var app = http.createServer(function(request, response) {
-  var index = path.join(__dirname, '/index.html');
+  var index = path.join(__dirname, 'index.html');
   if(request.url === '/' || request.url === '/index.html') {
     fs.readFile(index, function(err, data) {
       if(err) {
@@ -18,7 +18,7 @@ var app = http.createServer(function(request, response) {
   } else {
     console.log('resource not found: ' + request.url);
     response.writeHead(404, {'Content-Type': 'text/html'});
-    response.end(data);
+    response.end('<html><body>404 not found</body>');
   }
 });
 
