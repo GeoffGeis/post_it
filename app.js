@@ -22,5 +22,5 @@ var app = http.createServer(function(request, response) {
   }
 });
 
-app.listen(8080, 'postit.com');
-console.log('server up at postit.com:8080');
+app.listen(8080, 'localhost');
+console.log('server up at localhost:8080');

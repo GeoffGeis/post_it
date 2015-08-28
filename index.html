@@ -1,31 +1,19 @@
+<!DOCTYPE html>
 <html>
 <body>
+<div id="fb-root"></div>
+<a href="#" onclick="return postToWall();">Post To Wall</a>
+<script src="//connect.facebook.net/en_US/all.js"></script>
 <script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '136228200053820',
-      xfbml      : true,
-      version    : 'v2.4'
-    });
+  FB.init({ appId: '136228200053820', status: true, cookie: true, xfbml: true, oauth: true });
+
+  function postToWall() {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        FB.api('/me/feed', 'post', {picture: 'http://ageofthecustomer.com/wp-content/uploads/2014/03/success.jpg'}); 
+      } 
+    }, {scope: 'publish_actions'});
   };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div class="fb-login-button" data-scope="publish_actions" data-max-rows="1" data-size="medium"></div>
-
-<div id="publishBtn" style="padding-top: 20px">Click me to publish a "picture" post to Facebook.</div>
-
-<script>
-FB.login(function(){
-  FB.api('/me/feed', 'post', {message: 'Hello World'});
-}, {scope: 'publish_actions'});
 </script>
 </body>
 </html>
