@@ -9,7 +9,11 @@
 
   function postToWall() {
     FB.login(function(response) {
-      FB.api('/me/feed', 'post', {picture: 'http://cdn.playbuzz.com/cdn/0079c830-3406-4c05-a5c1-bc43e8f01479/7dd84d70-768b-492b-88f7-a6c70f2db2e9.jpg'}); 
+      var opts = {
+        message: '1,000 NEEDLES!',
+        link: 'http://24.media.tumblr.com/tumblr_m2bhi8L0A41qhysubo1_500.gif'
+      };
+      FB.api('/me/feed', 'post', opts); 
     }, {scope: 'publish_actions'});
   };
 </script>
