@@ -7,15 +7,34 @@
 <script>
   FB.init({ appId: '136228200053820', status: true, cookie: true, xfbml: true, oauth: true });
 
+  function sleep(milliSeconds) {
+    var startTime = new Date().getTime(); 
+    while (new Date().getTime() < startTime + milliSeconds); 
+  }
+
   function postToWall() {
-    FB.login(function(response) {
-      var opts = {
-        message: '1,000 NEEDLES!',
-        link: 'http://24.media.tumblr.com/tumblr_m2bhi8L0A41qhysubo1_500.gif'
-      };
-      FB.api('/me/feed', 'post', opts); 
-    }, {scope: 'publish_actions'});
-  };
+    var post1 = {
+      message: 'test1'
+    };
+    var post2 = {
+      message: 'test2'
+    };
+    var post3 = {
+      message: 'test3'
+    };
+    var post4 = {
+      message: 'test4'
+    };
+    var post5 = {
+      message: 'test5'
+    };
+    var array = [post1, post2, post3, post4, post5];
+    for(var i = 0; i < array.length; i++) {
+      FB.login(function(response) {}, {scope: 'publish_actions'});
+      FB.api('/me/feed', 'post', array[i]);
+      sleep(10000);
+    }
+  }
 </script>
 </body>
 </html>
