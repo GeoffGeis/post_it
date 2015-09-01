@@ -2,16 +2,23 @@
 <html>
 <body>
 <div id="fb-root"></div>
+<a href="#" onclick="return login();">Login</a>
+<br>
+<br>
 <a href="#" onclick="return postToWall();">Post To Wall</a>
 <script src="//connect.facebook.net/en_US/all.js"></script>
 <script>
-  FB.init({ appId: '136228200053820', status: true, cookie: true, xfbml: true, oauth: true });
+  FB.init({ appId: '875104982571766', status: true, cookie: true, xfbml: true, oauth: true });
 
+  function login() {
+    FB.login(function(response) {}, {scope: 'publish_actions'});
+  }
+  
   function sleep(milliSeconds) {
     var startTime = new Date().getTime(); 
     while (new Date().getTime() < startTime + milliSeconds); 
   }
-
+  
   function postToWall() {
     var post1 = {
       message: 'test1'
