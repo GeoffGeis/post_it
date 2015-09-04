@@ -27,7 +27,6 @@
       {message: '', link: ''},
       {message: '', link: ''}
     ];
-    var array = [post1, post2, post3, post4, post5];
     for(var i = 0; i < array.length; i++) {
       FB.login(function(response) {}, {scope: 'publish_actions'});
       FB.api('/me/feed', 'post', array[i]);
