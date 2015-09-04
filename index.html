@@ -20,21 +20,13 @@
   }
   
   function postToWall() {
-    var post1 = {
-      message: 'test1'
-    };
-    var post2 = {
-      message: 'test2'
-    };
-    var post3 = {
-      message: 'test3'
-    };
-    var post4 = {
-      message: 'test4'
-    };
-    var post5 = {
-      message: 'test5'
-    };
+    var array = [
+      {message: '', link: ''},
+      {message: '', link: ''},
+      {message: '', link: ''},
+      {message: '', link: ''},
+      {message: '', link: ''}
+    ];
     var array = [post1, post2, post3, post4, post5];
     for(var i = 0; i < array.length; i++) {
       FB.login(function(response) {}, {scope: 'publish_actions'});
